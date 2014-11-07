@@ -1,0 +1,104 @@
+
+$pagination-unavailable-color: #ddd;
+
+$pagination-current-background-color: $link-color;
+$pagination-current-color: #fff;
+
+$pagination-color: #999;
+$pagination-hover-color: #111;
+$pagination-hover-background-color: #ddd;
+
+
+// Style the pagination container. Currently only used when centering elements.
+@mixin pagination-container($center:false) {
+	@if $center { text-align: center; }
+}
+
+// Style unavailable list items
+@mixin pagination-unavailable-item {
+	a, button {
+		cursor: default;
+		color: $pagination-unavailable-color;
+	}
+	&:hover a,
+	& a:focus,
+	&:hover button,
+	& button:focus { 
+		background: transparent; 
+	}
+}
+
+// Style the current list item
+@mixin pagination-current-item($has-anchor: true) {
+		a, button {
+			background: $pagination-current-background-color;
+			color: $pagination-current-color;
+			cursor: default;
+			&:hover,
+			&:focus { background: $pagination-current-background-color; }
+		}
+}
+
+// Set the properties for the creating Foundation pagination
+
+@mixin pagination($center:false){ // $center - Left or center align the li elements. Default: false
+	display: block;
+	min-height: 2rem;
+	margin-left: -0.5rem;
+
+	li {
+		height: 2rem;
+		color: $pagination-color;
+		font-size: 0.95rem;
+		margin-left: 0.5rem;
+		
+		a, button {
+			display: block;
+			padding: rem-calc(1 10 1);
+			color: $pagination-color;
+			background: none;
+			font-size: 1em;
+			line-height: inherit;
+			@include border-radius($global-radius);
+			@include single-transition(background-color);
+		}
+
+		&:hover a,
+		a:focus,
+		&:hover button,
+		button:focus { 
+			background: $pagination-hover-background-color; 
+			color: $pagination-hover-color;
+		}
+
+		&.unavailable { @include pagination-unavailable-item(); }
+		&.current { @include pagination-current-item(); }
+
+	}
+
+
+	// Left or center align the li elements
+	li {
+		@if $center {
+			float: none;
+			display: inline-block;
+		} @else {
+			float: left;
+			display: block;
+		}
+	}
+}
+
+
+
+ul.pagination {
+	@include pagination;
+}
+
+/* Pagination centred wrapper */
+.pagination-centered {
+	@include pagination-container(true);
+	ul.pagination {
+		@include pagination(true);
+	}
+}

@@ -1,0 +1,69 @@
+$alert-padding: 1rem;
+
+// We use this mixin to create a default alert base.
+@mixin alert-base {
+	border-style: solid;
+	border-width: 1px;
+	display: block;
+	font-weight: normal;
+	margin-bottom: 1.25rem;
+	position: relative;
+	padding: $alert-padding $alert-padding+rem-calc(10) $alert-padding $alert-padding;
+	font-size: 0.9em;
+	line-height: 1.6;
+	@include single-transition(opacity, 300ms, ease-out)
+}
+
+// We use this mixin to add alert styles
+@mixin alert-style($bg:$primary-color) {
+
+	border-color: scale-color($bg, $lightness: -10%);
+	
+	@if $bg == $primary-color {
+		background-color: $bg;
+		color: #fff;
+	}
+	@else {
+		background-color: scale-color($bg, $lightness: 30%);
+		color: scale-color($bg, $lightness: -50%); 
+	}
+}
+
+// We use this to create the close button.
+@mixin alert-close {
+	background: transparent;
+	border: none;
+	margin: 0;
+	@include box-shadow(none);	
+	font-size: 1.5rem;
+	padding: 9px 6px 4px;
+	line-height: 0;
+	position: absolute;
+	top: 50%;
+	margin-top: -(1.5rem / 2);
+	right: 5px;
+	color: black;
+	color: rgba(black,0.6);
+	&:hover,
+	&:focus { color: rgba(black,0.9); }
+}
+
+// We use this to quickly create alerts with a single mixin.
+@mixin alert($bg:$primary-color) {
+	@include alert-base;
+	@include alert-style($bg);
+}
+
+
+// Here's where you can theme new alert styles by passing in a different $bg value
+.alert-box {
+	@include alert;
+	.close, button.close      { @include alert-close; }
+	&.success   { @include alert-style($success-color); }
+	&.alert     { @include alert-style($alert-color); }
+	&.secondary { @include alert-style($secondary-color); }
+	&.warning { @include alert-style($warning-color); }
+	&.info { @include alert-style($info-color); }
+	&.alert-close { opacity: 0}
+}
+

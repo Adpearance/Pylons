@@ -1,0 +1,262 @@
+/* ==========================================================================
+	!!  STYLE GUIDE LIBRARY - view components on preview.html
+	========================================================================== */
+	.styleguide {
+		.row {
+			max-width: 100%;
+		}
+	}
+
+	aside {
+		display: block;
+		width: 200px;
+		background: #efefef;
+		float: left;
+		padding: 0.75em 1.5em;
+		height: 100%;
+		z-index: 10;
+		a {
+			color: desaturate($link-color, 10%);
+			display: block;
+			margin: 0.5em 0; 
+			font-size: 13px;
+		}
+		h6 { margin-top: 1em; font-weight: bold; } 
+		nav {clear:both; position: relative; z-index: 10; }
+	}
+
+	#toTop {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background: black;
+		background: rgba(0, 0, 0, 0.7);
+		width: 50px;
+		height: 50px;
+		display: block;
+		@include border-radius(50%);
+		display: none;
+		&:hover {
+			background: rgba(0, 0, 0, 0.9);
+			i {
+				color: white;
+				top: 5px;
+			}
+		}
+		i {
+			color: #fff;
+			margin: 0;
+			position: relative;
+			left: 14px;
+			top: 14px;
+			font-size: 22px;
+			@include single-transition();
+		}
+	}
+
+	section[role="main"]{
+		display: block;
+		position: relative;
+		width: calc(100% - 200px);
+		padding-left: 3em;
+		float: right;
+		z-index: 1;
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 200px;
+			height: 100%;
+			left: -200px;
+			background: #efefef;
+		}
+	}
+
+	.styleguide-header {
+		background: rgba(white,.8);
+		padding: 5px 0;
+		width: 100%;
+		top:0;
+		left: 0;
+		@include box-shadow(0 0 10px rgba(black,.1));
+		z-index: 999;
+		h5 {
+			font-size: 1.3em;
+			margin: 5px 0 0 0;
+		}
+		label {
+			margin-top: 8px;
+		}
+	}
+
+	.styleguide-section-title {
+		padding: 30px 0 10px 0;
+		margin-top: 40px;
+		h3 {
+			font-size:2.75em;
+			letter-spacing: .25em;
+			font-family: $sans-serif;
+			font-weight: 200;
+			color: #999;
+			text-transform: uppercase;
+		}
+	}
+
+	.styleguide-pattern-heading {
+		font-size: 1.6em;
+		border-bottom: 2px solid #444;
+		padding-bottom: .3em;
+		margin-top: 40px;
+		margin-bottom: 10px;
+		font-family: $sans-serif;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		&.WIP {
+			color: red;
+		}
+	}
+
+	.styleguide-subpattern-heading {
+		font-size: .8em;
+		color: #999;
+		background: #ddd;
+		padding: 5px 10px;
+		@include border-radius(3px);
+		display: inline-block;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		font-family: $sans-serif;
+		&.WIP {
+			color: red;
+		}
+	}
+
+	.styleguide-colors {
+		@include clearfix;
+		margin: 0;
+		li {
+			border: 1px solid #ddd;
+			padding: 0.3em;
+			text-align: center;
+			list-style: none;
+			float: left;
+			width: 7.6em;
+			margin: 0 0.75em 0.2em 0;
+			span {
+				display: block;
+				width: 100%;
+				height: 6em;
+				margin: 0 auto 0.2em auto;
+			}
+			p {
+				font-size: 0.8em;
+				color: #666;
+				text-align: center;
+				margin-bottom: 0;
+			}
+			kbd {
+				font-size: 0.9em;
+			}
+		}
+	}
+
+	.styleguide-favicon-tiles {
+		@include clearfix;
+		margin: 0;
+		li {
+			text-align: center;
+			color: rgba(255, 255, 255, 0.6);
+			list-style: none;
+			float: left;
+			width: 30%;
+			margin: 0 0.25em 0.25em 0;
+		}
+		span {
+			display: block;
+			width: 100%;	
+			font-size: 11px;
+			padding: 0.5em 0;
+		}
+	}
+	
+	.styeguide-display {
+		background: rgba(cyan,.2);
+		border: solid 1px cyan;
+	}
+
+	.row.display {
+		@extend .styeguide-display;
+		font-size: 11px;
+		margin-bottom: 10px;
+		line-height: 2rem;
+		border: solid 1px cyan;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		.columns:nth-child(2), .columns.small-centered, .columns.medium-centered {
+			background: rgba(cyan,.4);
+		}
+	}
+
+	.styleguide-blockgrid {
+		@extend .styeguide-display;
+		padding: 2em 1em;
+		text-align: center;
+	}
+
+	.styleguide-equalizer {
+		@include clearfix;
+		> div {
+			background: rgba(cyan,.2);
+			border: 1px solid rgba(cyan,.6);
+			padding: 1em;
+			display: block;
+			line-height: 1.6;
+			float: left;
+			width: 30%;
+			margin-right: 1%;
+		}
+	}
+		
+
+	.styleguide-icons {
+		overflow-y: scroll;
+		max-height: 400px;
+		padding: 10px 20px 0 5px;
+		border: 1px solid #ddd;
+		display: block;
+		i {
+			font-size: 32px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		font-size: 11px;
+		color: #555;
+		span { font-size: 10px; color: #999;}
+	}
+
+	.panel {
+		background: #f1f1f1;
+		border: 1px solid #ccc;
+		@include box-shadow(inset 0 3px 8px #ddd);
+		padding: 1.5em 1.5em;
+		font-size: 12px;
+		color: #555;
+		margin-bottom: 1.25rem;
+		p:last-of-type { margin-bottom: 0};
+	}
+
+	textarea.code {
+		@include border-radius(0);
+		background: #f8f8f8;
+		border: 1px solid #ccc;
+		@include box-shadow(inset 0 3px 8px #ddd);
+		padding: 1em 1em 0;
+		color: #555;
+		font-family: "Consolas", "Menlo", "Courier", monospace;
+		font-size: 0.9365rem;
+		font-weight: normal;
+		height: auto;
+	}
+
+

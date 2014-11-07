@@ -1,0 +1,23 @@
+// @mixins
+@mixin flex-video-container {
+	position: relative;
+	padding-top: rem-calc(25);
+	padding-bottom: 67.5%;
+	height: 0;
+	margin-bottom: rem-calc(16);
+	overflow: hidden;
+	&.widescreen { padding-bottom: 56.55%; }
+	&.vimeo { padding-top: 0; }
+	iframe,
+	object,
+	embed,
+	video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.flex-video { @include flex-video-container; }

@@ -1,0 +1,78 @@
+$crumb-link-color: $link-color;
+$crumb-current-color: $body-font-color;
+$crumb-unavailable-color: #999;
+
+$crumb-slash: "/";
+$crumb-slash-color: $crumb-current-color;
+
+
+// We use this mixin to create a container around our breadcrumbs
+@mixin crumb-container { 
+	display: block;
+	padding: 1.5em 0;
+	overflow: hidden;
+	margin-left: 0;
+	list-style: none;
+}
+
+ // We use this mixin to create breadcrumb styles from list items.
+@mixin crumbs {
+	margin: 0;
+	float: left;
+	font-size: 0.95rem;
+	line-height: 1em;
+	color: $crumb-link-color;
+	&:hover a, &:focus a { 
+		text-decoration: underline; 
+	}
+	a {
+		color: $crumb-link-color;
+	}
+
+	&.current, &.current a {
+		cursor: default;
+		color: $crumb-current-color;
+		&:hover, &:hover a,
+		&:focus, &:focus a { text-decoration: none; }
+	}
+
+	&.unavailable, &.unavailable a {
+		color: $crumb-current-color;	
+		text-decoration: none;
+		cursor: default;
+		&:hover,
+		&:hover a,
+		&:focus,
+		a:focus {
+			text-decoration: none;
+		}
+	}
+
+	&:before {
+		content: "#{$crumb-slash}";
+		color: $crumb-slash-color;
+		opacity: 1;
+		margin: 0 0.5rem;
+		position: relative;
+		top: 1px;
+	}
+
+	&:first-child:before {
+		content: " ";
+		margin: 0;
+	}
+}
+
+
+.breadcrumbs {
+	@include crumb-container;
+	&>* {
+		@include crumbs;
+	}
+}
+
+
+// Accessibility - hides the forward slash
+[aria-label="breadcrumbs"] [aria-hidden="true"]:after {
+	content: "/";
+}

@@ -1,0 +1,46 @@
+/* ==========================================================================
+	!!  WEIGHTS AND HELPERS
+	========================================================================== */
+
+	.serif { font-family: $serif !important; }
+	.sans-serif { font-family: $sans-serif !important; }
+
+	.font-thin { font-weight: 100; }
+	.font-light { font-weight: 300; }
+	.font-regular { font-weight: 400; }
+	.font-semibold { font-weight: 600; }
+	.font-bold { font-weight: 700; }
+	.font-extrabold { font-weight: 800; }
+	.font-black { font-weight: 900; }
+
+
+/* ==========================================================================
+	!!  COLORS
+	========================================================================== */
+	
+	.error { color: $error !important; }
+
+
+
+
+/* ==========================================================================
+	!!  SPECIAL TREATMENTS
+	========================================================================== */
+
+	.small_text, p.small_text,  {
+		font-family: $sans-serif;
+		font-size: .9em;
+		letter-spacing: .04em;
+	}
+	.small_text p { font-size: 1em; } // so the p isn't doubling the smaller font-size
+
+	a.small_text { //used in other cols
+		color: lighten($body-font-color, 20%);
+		text-decoration: none;
+		&:hover { text-decoration: underline; }
+	}
+
+	.all_caps {
+		text-transform: uppercase;
+		letter-spacing: .08em;
+	}

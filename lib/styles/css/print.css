@@ -1,0 +1,100 @@
+/*
+Error: Undefined variable: "$reveal-modal-class".
+        on line 30 of styles/print.scss
+
+25: 		.show-for-print { display: inherit !important; }
+26: 	}
+27: 
+28: 
+29: 	@media print {
+30: 		dialog, .#{$reveal-modal-class} { 
+31: 			display: none;
+32: 			background: $white !important;
+33: 		}
+34: 	}
+
+Backtrace:
+styles/print.scss:30
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/script/tree/variable.rb:49:in `_perform'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/script/tree/node.rb:50:in `perform'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/script/tree/interpolation.rb:100:in `_perform'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/script/tree/node.rb:50:in `perform'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:526:in `run_interp_no_strip'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:524:in `map'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:524:in `run_interp_no_strip'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:531:in `run_interp'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:399:in `visit_rule'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:36:in `send'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:158:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/stack.rb:115:in `with_frame'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:158:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:52:in `map'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:167:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:502:in `visit_media'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:36:in `send'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:158:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/stack.rb:115:in `with_frame'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:158:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:52:in `map'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:167:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:36:in `send'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:157:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:8:in `send'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/visitors/perform.rb:8:in `visit'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/root_node.rb:36:in `css_tree'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/engine.rb:285:in `render_with_sourcemap'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin/compiler.rb:489:in `update_stylesheet'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin/compiler.rb:215:in `update_stylesheets'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin/compiler.rb:209:in `each'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin/compiler.rb:469:in `on_file_changed'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin/compiler.rb:328:in `watch'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/listener.rb:252:in `call'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/listener.rb:290:in `initialize_adapter'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:299:in `start_poller'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:299:in `initialize'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:299:in `new'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:299:in `start_poller'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:101:in `start'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.rb:109:in `start!'
+/var/lib/gems/1.8/gems/sass-3.4.6/vendor/listen/lib/listen/listener.rb:66:in `start!'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin/compiler.rb:404:in `listen_to'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin/compiler.rb:338:in `watch'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin.rb:108:in `send'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/plugin.rb:108:in `method_missing'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/exec/sass_scss.rb:370:in `watch_or_update'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/exec/sass_scss.rb:50:in `process_result'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/exec/base.rb:52:in `parse'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/../lib/sass/exec/base.rb:19:in `parse!'
+/var/lib/gems/1.8/gems/sass-3.4.6/bin/sass:13
+/usr/local/bin/sass:19:in `load'
+/usr/local/bin/sass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$reveal-modal-class\".\A         on line 30 of styles/print.scss\A \A 25: 		.show-for-print { display: inherit !important; }\A 26: 	}\A 27: \A 28: \A 29: 	@media print {\A 30: 		dialog, .#{$reveal-modal-class} { \A 31: 			display: none;\A 32: 			background: $white !important;\A 33: 		}\A 34: 	}"; }

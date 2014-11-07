@@ -1,0 +1,144 @@
+/* ==========================================================================
+	!!  STYLES
+		Base body treatment
+	========================================================================== */
+
+	html, body {
+		font-size: $body-font-size;
+		@media #{$medium-up} {
+			font-size: $medium-font-size;
+		}
+		@media #{$large-up} {
+			font-size: $small-font-size;
+		}
+	}
+
+	body {
+		background: #fff;
+		color: $body-font-color;
+		padding: 0;
+		margin: 0;
+		font-family: $body-font-family;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 1;
+		position: relative;
+		cursor: default;
+	}
+
+
+/* ==========================================================================
+	!!  NORMALIZE
+	========================================================================== */
+
+	html, body { height: 100%; position: relative; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+
+	*, *:before, *:after {
+		@include box-sizing(border-box);
+	}
+
+	meta.foundation-data-attribute-namespace { font-family: false; }
+
+	a { background-color: transparent; }
+	a:hover { cursor: pointer; }
+	a:active,
+	a:hover {
+		outline: 0;
+	}
+
+	img, object, embed { max-width: 100%; height: auto; }
+
+	object, embed { height: 100%; }
+	img { -ms-interpolation-mode: bicubic; }
+
+	#map_canvas, .map_canvas {
+		img, embed, object { max-width: none !important;}
+	}
+
+	img {
+		display: inline-block;
+		vertical-align: middle;
+		border: 0;
+	}
+
+	b, strong { font-weight: bold; }
+
+	article,
+	aside,
+	details,
+	figcaption,
+	figure,
+	footer,
+	header,
+	hgroup,
+	main,
+	menu,
+	nav,
+	section,
+	summary {
+		display: block;
+	}
+
+	// Make sure textarea takes on height automatically
+	textarea { height: auto; min-height: 50px; }
+
+	 // Make select elements 100% width by default
+	select { width: 100%; }
+
+
+/* ==========================================================================
+	!!  HELPERS
+		Extremely useful classes for adding custom CSS functions to otherwise normal items
+	========================================================================== */
+
+	.left, .float-left { float: left !important; }
+	.right, .float-right { float: right !important; }
+	.float-none { float: none !important; }
+	.center {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.clearfix     { @include clearfix; }
+
+	.hide         { display: none; }
+	.hide-text {
+		font: 0/0 a;
+		color: transparent;
+		text-shadow: none;
+		background-color: transparent;
+		border: 0;
+	}
+
+	.spacer-20, .spacer-40 {
+		display: block;
+		width: 100%;
+	}
+
+	.spacer-20 {
+		margin: 20px 0;
+	}
+
+	.spacer-40 {
+		margin: 40px 0;
+	}
+
+	// Antialiased font smoothing works best for light text on a dark background.
+	// Apply to single elements instead of globally to body.
+	// Note this only applies to webkit-based desktop browsers and Firefox 25 (and later) on the Mac.
+	.antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+
+/* ==========================================================================
+	!!  DEBUGGING HELPERS
+		Add classes to items to assist in visualizing block element errors or need to show a class.
+	========================================================================== */
+
+	.debug {
+		background: rgba(255,0,0,0.2);
+		border:1px solid red;
+	}
+
+	.show_class *:after {
+		content: attr(class);
+	}

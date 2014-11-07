@@ -1,0 +1,72 @@
+
+$table-padding: rem-calc(8 10 10);
+$cell-padding: rem-calc(14 10);
+
+@mixin table {
+	background: #fff;
+	margin-bottom: rem-calc(20);
+	border: 1px solid gainsboro;
+	table-layout: auto;
+
+	caption {
+		background: transparent;
+		color: $body-font-color;
+		font: {
+			size: rem-calc(16);
+			weight: bold;
+		}
+	}
+
+	thead {
+		background: #f5f5f5;
+		tr {
+			th,
+			td {
+				padding: $table-padding;
+				font-size: rem-calc(14);
+				font-weight: bold;
+				color: $body-font-color;
+			}
+		}
+	}
+
+	tfoot {
+		background: #f5f5f5;
+		tr {
+			th,
+			td {
+				padding: $table-padding;
+				font-size: rem-calc(14);
+				font-weight: bold;
+				color: $body-font-color;
+			}
+		}
+	}
+
+	tr {
+		th,
+		td {
+			padding: $cell-padding;
+			font-size: rem-calc(14);
+			color: $body-font-color;
+			text-align: left;
+		}
+
+		&.even,
+		&.alt,
+		&:nth-of-type(even) { background: #f9f9f9; }
+	}
+
+	thead tr th,
+	tfoot tr th,
+	tfoot tr td,
+	tbody tr th,
+	tbody tr td,
+	tr td { display: table-cell; line-height: rem-calc(18); }
+}
+
+
+
+table {
+	@include table;
+}

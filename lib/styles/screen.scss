@@ -1,0 +1,48 @@
+// This file centralizes all your styles by imports all the other SASS components and modules.  The exported screen.css will have comments with the corresponding files and line numbers so you can debug.  The HTML file links to /lib/styles/css/screen.css.
+
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+// Base: Reset, normalize, helpers, browser rendered HTML objects
+@import
+	"compass",
+	"sass";
+
+@import
+	"base/base",
+	"base/block-grid",
+	"base/grid",
+	"base/normalize",
+	"base/type",
+	"base/visibility";
+	
+// Components: individual UI items
+@import
+	"components/accordion",
+	"components/alerts",
+	"components/breadcrumbs",
+	"components/buttons",
+	"components/dropdowns",
+	"components/flex-video",
+	"components/forms",
+	"components/icons",
+	"components/pagination",
+	"components/reveal",
+	"components/tables",
+	"components/tabs",
+	"components/tooltips";
+	
+
+// Skin: global styles related to the thematic look of the brand 
+@import
+	"skin/typography";
+
+// Vendors: styles specific to plugins 
+@import
+	"vendors/owl-carousel";
+
+// Layout: styles for certain templates/modules 
+@import
+	"layout/styleguide";
+
+

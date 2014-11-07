@@ -1,0 +1,445 @@
+
+
+$form-spacing: rem-calc(16);
+
+//labels
+$form-label-font-size: rem-calc(14);
+$form-label-font-color: lighten(#000, 30%);
+$input-font-size: rem-calc(14);
+
+//fields
+$input-radius: 0; // set to $global-radius if you want rounded inputs
+
+$input-field-color: #fff;
+$input-border: 1px solid darken(#fff, 20%);
+$input-focus-bg-color: darken(#fff, 2%);
+$input-focus-border-color: darken(#fff, 40%);
+
+//selects
+$select-bg-color: #fafafa;
+$select-hover-bg-color: #cccccc;
+
+//prefix+postfix styles
+$input-prefix-bg: darken(#fff, 5%);
+$input-prefix-border-color: darken(#fff, 20%);
+$input-prefix-font-color: $body-font-color;
+$input-prefix-font-color-alt: #fff;
+
+
+// @MIXINS
+@mixin form-row-base {
+	.row {
+		margin: 0 ((-$form-spacing) / 2);
+		.column,
+		.columns { padding: 0 $form-spacing / 2; }
+
+		&.collapse {
+			margin: 0;
+			.column,
+			.columns { padding: 0; }
+			input {
+				@include border-right-radius(0);
+			}
+		}
+	}
+	input.column,
+	input.columns,
+	textarea.column,
+	textarea.columns { padding-left: $form-spacing / 2; }
+}
+
+// @MIXIN
+@mixin form-element {
+	background-color: $input-field-color;
+	font-family: $body-font-family;
+	border: $input-border;
+	@include border-radius($input-radius);
+	@include box-shadow(inset -1px 2px 0px rgba(0,0,0,0.08));
+	color: rgba(0,0,0,0.75) !important;
+	display: block;
+	font-size: 14px;
+	margin: 0 0 $form-spacing 0;
+	padding: $form-spacing / 2;
+	padding-left: 0.9em;
+	height: ($input-font-size + ($form-spacing * 2) - rem-calc(1));
+	width: 100%;
+	@include box-sizing(border-box);
+	&:focus {
+		background: $input-focus-bg-color;
+		border-color: $input-focus-border-color;
+		outline: none;
+	}
+	&:disabled { background-color: #ddd; cursor: default; }
+	&[disabled], &[readonly], fieldset[disabled] & { background-color: #ddd; cursor: default; }
+}
+
+// @MIXIN
+@mixin form-label($alignment:false, $base-style:true) {
+	@if $base-style {
+		font-size: $form-label-font-size;
+		color: $form-label-font-color;
+		cursor: pointer;
+		display: block;
+		font-weight: 600;
+		line-height: 1.5;
+		margin-bottom: 0;
+	}
+	@else if $alignment == inline {
+		margin: 0 0 $form-spacing 0;
+		padding: $form-spacing / 2 + rem-calc(2) 0;
+	}
+}
+
+
+$button-tny: rem-calc(7) !default;
+$button-sml: rem-calc(10) !default;
+$button-med: rem-calc(12) !default;
+$button-lrg: rem-calc(16) !default;
+@mixin button-size($padding:$button-med, $full-width:false, $is-input:false) {
+	@if $padding {
+		padding-top: $padding;
+		padding-right: $padding * 2;
+		padding-bottom: $padding + rem-calc(1);
+		padding-left: $padding * 2;
+		@if      $padding == $button-med { font-size: rem-calc(14); }
+		@else if $padding == $button-tny { font-size: rem-calc(10); }
+		@else if $padding == $button-sml { font-size: rem-calc(11); }
+		@else if $padding == $button-lrg { font-size: rem-calc(20); }
+	}
+
+	@if $full-width {
+		@if $padding {
+			padding-top: $padding;
+			padding-bottom: $padding;
+		}
+		@else if $padding == false {
+			padding-top:0;
+			padding-bottom:0;
+		}
+		padding-right: 0;
+		padding-left: 0;
+		width: 100%;
+	}
+	@if $is-input == $button-lrg {
+		padding-top: $is-input + rem-calc(0.75);
+		padding-bottom: $is-input + rem-calc(0.75);
+		-webkit-appearance: none;
+		font-weight: $button-font-weight !important;
+	}
+	@else if $is-input {
+		padding-top: $is-input + rem-calc(.5);
+		padding-bottom: $is-input;
+		-webkit-appearance: none;
+		font-weight: $button-font-weight !important;
+	}
+}
+
+
+@mixin prefix-postfix-base {
+	display: block;
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	width: 100%;
+	padding-top: 0;
+	padding-bottom: 0;
+	border-style: solid;
+	border-width: 1px;
+	border-color: $input-prefix-border-color;
+	overflow: hidden;
+	font-family: $body-font-family;
+	font-size: 0.8em;
+	height: ($form-label-font-size + ($form-spacing * 2) - rem-calc(1));
+	line-height: ($form-label-font-size + ($form-spacing * 2) - rem-calc(1));
+}
+
+// @MIXIN
+@mixin prefix($bg:$input-prefix-bg, $border:$input-prefix-border-color, $is-button:false) {
+	@if $bg {
+		$bg-lightness: lightness($bg);
+		background: $bg;
+		border-right: none;
+		@if $bg-lightness > 70% or $bg == yellow { color: $input-prefix-font-color; }
+		@else { color: $input-prefix-font-color-alt; }
+	}
+	@if $is-button {
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
+		line-height: rem-calc(34);
+		border: none;
+	}
+}
+
+// @MIXIN
+@mixin postfix($bg:$input-prefix-bg, $is-button:false) {
+	@if $bg {
+		$bg-lightness: lightness($bg);
+		background: $bg;
+		border-left: none;
+		@if $bg-lightness > 70%  or $bg == yellow { color: $input-prefix-font-color; }
+		@else { color: $input-prefix-font-color-alt; }
+	}
+	@if $is-button {
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
+		line-height: rem-calc(34);
+		border: none;
+	}
+}
+
+@mixin fieldset {
+	border: 1px solid #ddd;
+	padding: rem-calc(20);
+	margin: rem-calc(18 0);
+	legend {
+		font-weight: bold;
+		background: #fff;
+		padding: rem-calc(0 3);
+		margin: 0;
+		margin-left: rem-calc(-3);
+	}
+}
+
+// @MIXIN
+@mixin form-error-color($color:$alert-color) {
+	border-color: $color;
+	background-color: rgba($color, 0.1);
+	&:focus {
+		background: $input-focus-bg-color;
+		border-color: $input-focus-border-color;
+	}
+}
+
+@mixin form-label-error-color($color:$alert-color) { color: $color; }
+
+// @MIXIN
+@mixin form-error-message($bg:$alert-color) {
+	display: block;
+	margin-top: 0.75em;
+	margin-bottom: $form-spacing;
+	font-size: rem-calc(12);
+	font-weight: 600;
+}
+
+
+@mixin form-select  {
+	-webkit-appearance: none !important;
+	-webkit-border-radius: 0px;
+	background-color: $select-bg-color;
+	&::-ms-expand {
+		display: none;
+	}
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
+	background-position: 100% center;
+	background-repeat: no-repeat;
+	border: 1px solid #dad7d7;
+	padding: $form-spacing / 2;
+	margin: 0 0 $form-spacing 0;
+	font-size: $input-font-size;
+	font-family: $body-font-family;
+	color: $form-label-font-color;
+	line-height: normal;
+	&:hover {
+		background-color: $select-hover-bg-color;
+		border-color: $input-focus-border-color;
+	}
+	&:focus {
+		border-color:input-focus-border-color;
+		outline: none;
+	}
+	&:disabled {
+		opacity: 0.6;
+		cursor: def;
+	}
+}
+
+// Turn on/off HTML5 number spinners
+@mixin html5number($browser, $on:true) {
+	@if $on==false {
+		@if $browser==webkit {
+			-webkit-appearance: none;
+			margin: 0;
+		} @else if $browser==moz {
+			-moz-appearance: textfield;
+		}
+	}
+}
+
+
+
+form { margin: 0 0 $form-spacing; }
+form .row { @include form-row-base; }
+
+label { 
+	@include form-label;
+	&.inline { @include form-label(inline,false); }
+	small {
+		text-transform: capitalize;
+		color: lighten($form-label-font-color, 10%);
+	}
+}
+
+.prefix,
+.postfix { @include prefix-postfix-base; }
+
+.postfix.button { @include button-size(false,false,false); @include postfix(false,true); }
+.prefix.button { @include button-size(false,false,false); @include prefix(false,true); }
+
+.prefix.button.radius { @include border-radius(0); @include side-radius(left, $input-radius); }
+.postfix.button.radius { @include border-radius(0); @include side-radius(right, $input-radius); }
+
+span.prefix,label.prefix { @include prefix(); }
+span.postfix,label.postfix { @include postfix(); }
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0px;
+	border-radius: 0;
+	@include form-element;
+	&.radius {
+		@include border-radius($input-radius);
+	}
+	&.with_prefix {
+		@include border-radius(0 $input-radius $input-radius 0);
+	}
+	&.with_postfix {
+		@include border-radius($input-radius 0 0 $input-radius);
+	}
+}
+
+
+form {
+	.row {
+		.prefix-radius.row.collapse {
+			input,
+			textarea,
+			select { @include border-radius(0); @include side-radius(right, $input-radius); }
+			.prefix { @include border-radius(0); @include side-radius(left, $input-radius); }
+		}
+		.postfix-radius.row.collapse {
+			input,
+			textarea,
+			select { @include border-radius(0); @include side-radius(left, $input-radius); }
+			.postfix { @include border-radius(0); @include side-radius(right, $input-radius); }
+		}
+	}
+}
+
+
+ input[type="submit"] {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0px;
+}
+
+textarea[rows] {
+	height: auto;
+}
+
+textarea {
+	max-width: 100%;
+	padding-top: 0.9em;
+}
+
+
+select {
+	@include form-select;
+	height: ($input-font-size + ($form-spacing * 2) - rem-calc(1));
+}
+
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"] {
+	margin: 0 0 $form-spacing/2 0;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	display: inline-block;
+	margin-left: $form-spacing * .5;
+	margin-right: $form-spacing;
+	margin-bottom: 0;
+	vertical-align: baseline;
+}
+
+input[type="file"] {
+	width:100%;
+}
+
+fieldset {
+	@include fieldset;
+}
+
+span.error, small.error {
+	@include form-error-message;
+}
+
+.error {
+	input,
+	textarea,
+	select {
+		margin-bottom: 0;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		margin-bottom: $form-spacing
+	}
+
+	label,
+	label.error {
+		@include form-label-error-color;
+	}
+
+	small.error {
+		@include form-error-message;
+	}
+
+	> label {
+		> small {
+			color: scale-color($form-label-font-color, $lightness: 15%);
+			background: transparent;
+			padding: 0;
+			text-transform: capitalize;
+			font-style: normal;
+			font-size: 60%;
+			margin: 0;
+			display: inline;
+		}
+	}
+
+	span.error-message {
+		display: block;
+	}
+}
+
+input.error,
+textarea.error {
+	margin-bottom: 0;
+	@include form-error-color;
+}
+label.error { @include form-label-error-color; }
+	
+
+input[placeholder] { text-overflow: ellipsis; }
+::-moz-placeholder { text-overflow: ellipsis; } /* firefox 19+ */
+input:-moz-placeholder { text-overflow: ellipsis; }

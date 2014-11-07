@@ -1,0 +1,352 @@
+/* !!  VARIABLES
+	 ------------------------------------------------------------------------------------------------------*/
+	$paragraph-margin-bottom: rem-calc(20) !default;
+	$paragraph-line-height: 1.6 !default;
+
+	$header-font-family: $body-font-family !default;
+	$header-font-weight: 400 !default;
+	$header-font-color: #222 !default;
+
+	$h1-font-size: rem-calc(44) !default;
+	$h2-font-size: rem-calc(37) !default;
+	$h3-font-size: rem-calc(27) !default;
+	$h4-font-size: rem-calc(23) !default;
+	$h5-font-size: rem-calc(18) !default;
+	$h6-font-size: 1rem !default;
+
+	$list-side-margin: 1.1rem !default;
+	$list-nested-margin: rem-calc(20) !default;
+
+	$blockquote-padding: rem-calc(9 20 0 19) !default;
+
+
+/* ==========================================================================
+	!!  HELPERS
+	========================================================================== */
+
+	.text-left    { text-align: left !important; }
+	.text-right   { text-align: right !important; }
+	.text-center  { text-align: center !important; }
+	.text-justify { text-align: justify !important; }
+
+	@media #{$small-only} {
+		.small-only-text-left    { text-align: left !important; }
+		.small-only-text-right   { text-align: right !important; }
+		.small-only-text-center  { text-align: center !important; }
+		.small-only-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$small-up} {
+		.small-text-left    { text-align: left !important; }
+		.small-text-right   { text-align: right !important; }
+		.small-text-center  { text-align: center !important; }
+		.small-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$medium-only} {
+		.medium-only-text-left    { text-align: left !important; }
+		.medium-only-text-right   { text-align: right !important; }
+		.medium-only-text-center  { text-align: center !important; }
+		.medium-only-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$medium-up} {
+		.medium-text-left    { text-align: left !important; }
+		.medium-text-right   { text-align: right !important; }
+		.medium-text-center  { text-align: center !important; }
+		.medium-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$large-only} {
+		.large-only-text-left    { text-align: left !important; }
+		.large-only-text-right   { text-align: right !important; }
+		.large-only-text-center  { text-align: center !important; }
+		.large-only-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$large-up} {
+		.large-text-left    { text-align: left !important; }
+		.large-text-right   { text-align: right !important; }
+		.large-text-center  { text-align: center !important; }
+		.large-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$xlarge-only} {
+		.xlarge-only-text-left    { text-align: left !important; }
+		.xlarge-only-text-right   { text-align: right !important; }
+		.xlarge-only-text-center  { text-align: center !important; }
+		.xlarge-only-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$xlarge-up} {
+		.xlarge-text-left    { text-align: left !important; }
+		.xlarge-text-right   { text-align: right !important; }
+		.xlarge-text-center  { text-align: center !important; }
+		.xlarge-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$xxlarge-only} {
+		.xxlarge-only-text-left    { text-align: left !important; }
+		.xxlarge-only-text-right   { text-align: right !important; }
+		.xxlarge-only-text-center  { text-align: center !important; }
+		.xxlarge-only-text-justify { text-align: justify !important; }
+	}
+
+	@media #{$xxlarge-up} {
+		.xxlarge-text-left    { text-align: left !important; }
+		.xxlarge-text-right   { text-align: right !important; }
+		.xxlarge-text-center  { text-align: center !important; }
+		.xxlarge-text-justify { text-align: justify !important; }
+	}
+
+
+	// Typography resets
+	div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,th,td { margin:0; padding:0; }
+
+
+/* ==========================================================================
+	!!  LINKS
+	========================================================================== */
+
+	a {
+		color: $link-color;
+		text-decoration: none;
+		line-height: inherit;
+		&:hover,
+		&:focus { color: darken($link-color, 10%); }
+		img { border:none; }
+	}
+
+	p a {
+		text-decoration: underline;
+	}
+
+
+/* ==========================================================================
+	!!  PARAGRAPH
+	========================================================================== */
+
+	p {
+		font-family: inherit;
+		font-weight: normal;
+		font-size: 1rem;
+		line-height: 1.6;
+		margin-bottom: $paragraph-margin-bottom;
+		text-rendering: optimizeLegibility;
+		&.lead { font-size: 1rem + rem-calc(3.5); }
+		& aside {
+			font-size: rem-calc(14);
+			line-height: 1.35;
+			font-style: italic;
+		}
+	}
+
+
+/* ==========================================================================
+	!!  HEADERS
+	========================================================================== */
+
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		font-family: $header-font-family;
+		font-weight: $header-font-weight;
+		font-style: normal;
+		color: $header-font-color;
+		text-rendering: optimizeLegibility;
+		margin-top: 0.2rem;
+		margin-bottom: 0.5rem;
+		line-height: 1.4;
+		small {
+			font-size: 60%;
+			color: lighten($header-font-color, 35%);
+			line-height: 0;
+		}
+		&.collapse { margin: 0; }
+	}
+
+	h1,.h1 { font-size: $h1-font-size - rem-calc(10); }
+	h2,.h2 { font-size: $h2-font-size - rem-calc(10); }
+	h3,.h3 { font-size: $h3-font-size - rem-calc(5); }
+	h4,.h4 { font-size: $h4-font-size - rem-calc(5); }
+	h5,.h5 { font-size: $h5-font-size; }
+	h6,.h6 { font-size: $h6-font-size; }
+
+
+	@media #{$medium-up} {
+		h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 { line-height: 1.4; }
+		h1,.h1 { font-size: $h1-font-size; }
+		h2,.h2 { font-size: $h2-font-size; }
+		h3,.h3 { font-size: $h3-font-size; }
+		h4,.h4 { font-size: $h4-font-size; }
+	}
+
+/* ==========================================================================
+	!!  DEFAULTS
+	========================================================================== */
+
+	hr {
+		border: 1px solid #ddd;
+		border-width: 1px 0 0;
+		clear: both;
+		margin: rem-calc(20) 0;
+		height: 0;
+		 &.collapse {
+			margin: 0;
+		}
+	}
+
+	em, i { font-style: italic; line-height: inherit; }
+	strong, b { font-weight: 700; line-height: inherit; }
+
+	small {
+		font-size: 80%;
+		line-height: inherit;
+	}
+
+	kbd, code {
+		font-family: "Consolas", "Menlo", "Courier", monospace;
+		font-size: 0.9365rem;
+		font-weight: normal;
+		color: #222;
+		margin: 0;
+		background: #ededed;
+		border: 1px solid #dbdbdb;
+		padding: .125em .25em 0em;
+		@include border-radius(3px);
+	}
+
+
+
+/* ==========================================================================
+	!!  LISTS
+	========================================================================== */
+
+	//base
+	ul,
+	ol,
+	dl {
+		font-size: 1rem;
+		line-height: $paragraph-line-height;
+		margin-bottom: $paragraph-margin-bottom;
+		list-style-position: outside;
+		font-family: inherit;
+	}
+
+	ul {
+		margin-left: $list-side-margin;
+		&.no-bullet {
+			margin-left: 0;
+			li {
+				ul,
+				ol {
+					margin-left: $list-nested-margin;
+					margin-bottom: 0;
+					list-style: none;
+				}
+			}
+		}
+	}
+
+
+	//unordered
+	 ul {
+		li {
+			ul,
+			ol {
+				margin-left: $list-nested-margin;
+				margin-bottom: 0;
+				font-size: 1rem;
+			}
+		}
+		&.square,
+		&.circle,
+		&.disc {
+			li ul { list-style: inherit; }
+		}
+
+		&.square { list-style-type: square; margin-left: $list-side-margin;}
+		&.circle { list-style-type: circle; margin-left: $list-side-margin;}
+		&.disc { list-style-type: disc; margin-left: $list-side-margin;}
+		&.no-bullet { list-style: none; }
+	}
+
+	//ordered
+	ol {
+		margin-left: $list-side-margin;
+		li {
+			ul,
+			ol {
+				margin-left: $list-nested-margin;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+
+	//definition lists
+	dl {
+		dt {
+			margin-bottom: .3rem;
+			font-weight: bold;
+		}
+		dd { margin-bottom: rem-calc(12); }
+	}
+
+	//inline lists
+	.inline-list, .inline_list {
+		margin: 0 auto rem-calc(17) auto;
+		margin-left: rem-calc(-22);
+		margin-right: 0;
+		padding: 0;
+		list-style: none;
+		overflow: hidden;
+		& > li {
+			list-style: none;
+			float: left;
+			margin-left: rem-calc(22);
+			display: block;
+			&>* { display: block; }
+		}
+	}
+
+
+/* ==========================================================================
+	!!  ETC
+	========================================================================= */
+
+	abbr,
+	acronym {
+		text-transform: uppercase;
+		font-size: 90%;
+		color: $body-font-color;
+		border-bottom: 1px dotted #ddd;
+		cursor: help;
+	}
+	abbr {
+		text-transform: none;
+	}
+
+	blockquote {
+		margin: 0 0 $paragraph-margin-bottom;
+		padding: $blockquote-padding;
+		border-left: 1px solid #ddd;
+
+		cite {
+			display: block;
+			font-size: rem-calc(13);
+			color: #888;
+			&:before {
+				content: "\2014 \0020";
+			}
+
+			a,
+			a:visited {
+				color: $link-color;
+			}
+		}
+	}
+	blockquote,
+	blockquote p {
+		line-height: $paragraph-line-height;
+		color: #444;
+	}

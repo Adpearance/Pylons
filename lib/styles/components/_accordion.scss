@@ -1,0 +1,75 @@
+// Expanding text accordion.  JS in global.js
+
+$accordion-navigation-padding: rem-calc(12);
+$accordion-content-padding: $column-gutter/2;
+$accordion-color: #ccc;
+$accordion-active-color: lighten(#ccc,10%);
+
+.accordion {
+	margin-bottom: 1.25rem;
+	margin-left: 0;
+	.accordion-title {
+		position: relative;
+		margin-bottom: 0 !important;
+		cursor: pointer;
+		display: block;
+		width: 100%;
+		background: $accordion-color;
+		color: lighten($body-font-color,5%);
+		padding: $accordion-navigation-padding * 1.5;
+		font-family: $body-font-family;
+		font-size: $body-font-color;
+		&:hover {
+			background: darken($accordion-color, 7%);
+		}
+		&.active {
+			background: $accordion-active-color;
+			color: $body-font-color;
+		}
+	}
+	.content {
+		@include clearfix;
+		padding: $accordion-content-padding;
+		width: 100%;
+		border: 1px solid $accordion-active-color;
+		line-height: 1.6;
+		p:last-child { margin-bottom: 0; } //consistent bottom padding, whether or not content is in a <p> or plain
+	}
+}
+
+
+
+//simpler text collapse
+.accordion.text-collapse {
+	margin-bottom: 1.25rem;
+	margin-left: 0;
+	.accordion-title {
+		background: transparent;
+		color: $link-color;
+		padding: $accordion-navigation-padding * 1.5 0 $accordion-navigation-padding * 1.5 $accordion-content-padding*1.5;
+		font-weight: bold;
+		&:hover {
+			background: transparent;
+			color: darken($link-color, 10%);
+		}
+		&:after {
+			@include icon-font;
+			content: "\e08c";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: $accordion-navigation-padding * 1.5;
+		}
+		&.active {
+			background: transparent;
+			color: $body-font-color;
+			&:after {
+				content: "\e08d";
+			}
+		}
+	}
+	.content {
+		padding: 0 $accordion-content-padding*1.5 $accordion-content-padding ;
+		border: 0;
+	}
+}
